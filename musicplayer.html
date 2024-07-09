@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Player</title>
+  <style>
+    /* Responsive layout styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(to bottom, #800000, #800020);
+    }
+
+    .music-player {
+      text-align: center;
+    }
+
+    .music-player h1 {
+      font-size: 3rem;
+      background: linear-gradient(to right, #f00, #f93, #fff, #90f, #f00);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: animateText 5s infinite linear;
+    }
+
+    .song-details {
+      color: #aaa;
+      animation: fadeOut 15s infinite ease-in-out;
+    }
+
+    /* Hidden time seeker (adjust width as needed) */
+    #time-seeker {
+      width: 80%;
+      height: 5px;
+      margin: 5px auto;
+      background-color: #ddd; /* Adjust for background contrast */
+      opacity: 0;
+    }
+
+    #time-seeker::-webkit-slider-thumb {
+      display: none;
+    }
+
+    /* Volume icon */
+    #volume-icon {
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    /* Volume slider (hidden initially) */
+    #volume-slider {
+      position: absolute;
+      top: 100%; /* Positioned below the volume icon */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 80px;
+      background-color: #ddd; /* Adjust for background contrast */
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    #volume-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 20px;
+      background-color: #333; /* Adjust for contrast */
+      cursor: pointer;
+    }
+
+    /* Animations */
+    @keyframes animateText {
+      0% {
+        background-position: -200%;
+      }
+      100% {
+        background-position: 200%;
+      }
+    }
+
+    @keyframes fadeOut {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="music-player">
+    <h1>Music Player</h1>
+    <button id="request-access">Request Access</button>
+    <select id="song-selector" disabled>
+      <option value="">- Select Song -</option>
+    </select>
+    <h2 class="song-details">Song Title</h2>
+    <audio id="defaultPlayer" controls preload="none">
+      <source src="" type="audio/mpeg">
+    </audio>
+    <input type="range" id="time-seeker" min="0" max="0" step="1" disabled>  <svg id="volume-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 8c0-1.654 X
+    </svg>
+
+    <div class="controls">
+      <button id="play-pause"><i class="fas fa-play"></i></button>
+      <button
